@@ -79,6 +79,6 @@ public class GetHttpMethodExample {
     public void getMethodValidateJsonSchema() {
         RestAssured.given().baseUri("http://localhost:8088/employees")
                 .get().then().statusCode(200)
-                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("employee_valid_response.json"));
+                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("get-all-employee-json-schema.json"));
     }
 }
