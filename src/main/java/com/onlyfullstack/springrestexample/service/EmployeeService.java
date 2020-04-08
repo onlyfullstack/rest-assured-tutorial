@@ -13,37 +13,37 @@ import java.util.List;
 @Service
 public class EmployeeService {
 
-  @Autowired
-  private EmployeeRepository repository;
+    @Autowired
+    private EmployeeRepository repository;
 
-  public EmployeeDO addEmployee(EmployeeDO employee) {
-    return repository.save(employee);
-  }
+    public EmployeeDO addEmployee(EmployeeDO employee) {
+        return repository.save(employee);
+    }
 
-  public EmployeeDO updateEmployee(EmployeeDO employee, Long employeeId) throws EntityNotFoundException {
-    EmployeeDO employeeDO = repository.findById(employeeId).orElseThrow(()
-            -> new EntityNotFoundException("Employee", "empId", employeeId.toString()));
+    public EmployeeDO updateEmployee(EmployeeDO employee, Long employeeId) throws EntityNotFoundException {
+        EmployeeDO employeeDO = repository.findById(employeeId).orElseThrow(()
+                -> new EntityNotFoundException("Employee", "empId", employeeId.toString()));
 
-    employeeDO.setEmail(employee.getEmail());
-    employeeDO.setFirstName(employee.getFirstName());
-    employeeDO.setLastName(employee.getLastName());
-    employeeDO.setSalary(employee.getSalary());
+        employeeDO.setEmail(employee.getEmail());
+        employeeDO.setFirstName(employee.getFirstName());
+        employeeDO.setLastName(employee.getLastName());
+        employeeDO.setSalary(employee.getSalary());
 
-    return repository.save(employeeDO);
-  }
+        return repository.save(employeeDO);
+    }
 
-  public List<EmployeeDO> getAllEmployees() {
-    return (List<EmployeeDO>) repository.findAll();
-  }
+    public List<EmployeeDO> getAllEmployees() {
+        return (List<EmployeeDO>) repository.findAll();
+    }
 
-  public EmployeeDO getEmployee(Long employeeId) throws EntityNotFoundException {
-    return repository.findById(employeeId).orElseThrow(()
-        -> new EntityNotFoundException("Employee", "empId", employeeId.toString()));
-  }
+    public EmployeeDO getEmployee(Long employeeId) throws EntityNotFoundException {
+        return repository.findById(employeeId).orElseThrow(()
+                -> new EntityNotFoundException("Employee", "empId", employeeId.toString()));
+    }
 
-  public void deleteEmployee(Long employeeId) throws EntityNotFoundException {
-    EmployeeDO employee = repository.findById(employeeId).orElseThrow(()
-        -> new EntityNotFoundException("Employee", "empId", employeeId.toString()));
-    repository.delete(employee);
-  }
+    public void deleteEmployee(Long employeeId) throws EntityNotFoundException {
+        EmployeeDO employee = repository.findById(employeeId).orElseThrow(()
+                -> new EntityNotFoundException("Employee", "empId", employeeId.toString()));
+        repository.delete(employee);
+    }
 }
