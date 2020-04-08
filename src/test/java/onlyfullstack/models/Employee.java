@@ -17,8 +17,19 @@ public class Employee {
 
   private String email;
 
+  public Employee() {
+
+  }
+
   public Employee(Long id, String firstName, String lastName, Long salary, String email) {
     this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.salary = salary;
+    this.email = email;
+  }
+
+  public Employee(String firstName, String lastName, Long salary, String email) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.salary = salary;
@@ -72,7 +83,6 @@ public class Employee {
 
     Employee employee = (Employee) o;
 
-    if (id != null ? !id.equals(employee.id) : employee.id != null) return false;
     if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
     if (lastName != null ? !lastName.equals(employee.lastName) : employee.lastName != null) return false;
     if (salary != null ? !salary.equals(employee.salary) : employee.salary != null) return false;
@@ -87,5 +97,15 @@ public class Employee {
     result = 31 * result + (salary != null ? salary.hashCode() : 0);
     result = 31 * result + (email != null ? email.hashCode() : 0);
     return result;
+  }
+
+  @Override
+  public String toString() {
+    return "Employee{" +
+            "firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", salary=" + salary +
+            ", email='" + email + '\'' +
+            '}';
   }
 }

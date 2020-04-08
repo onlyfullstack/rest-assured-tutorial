@@ -1,11 +1,14 @@
 package com.onlyfullstack.springrestexample.datatransferobject;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeDTO {
 
   private Long id;
