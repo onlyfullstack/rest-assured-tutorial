@@ -14,4 +14,9 @@ public class StudentController {
     public StudentDTO getEmployee(@PathVariable(name = "studentId") Long studentId) throws EntityNotFoundException {
         return new StudentDTO(studentId, "Elon Musk", "elonmusk@gmail.com", "pccoe");
     }
+
+    @GetMapping
+    public StudentDTO getEmployee() {
+        return new StudentDTO(1l, "Elon Musk", "elonmusk@gmail.com", "pccoe");
+    }
 }
